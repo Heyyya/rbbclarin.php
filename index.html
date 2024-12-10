@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Municipality of Clarin</title>
+    <style>
+        h1 {
+            text-align: center;
+            color: black;
+            font-size: 70px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: black;
+            font-size: 50px;
+        }
+
+        body {
+            background-repeat: no-repeat;
+            background-size: auto;
+            background-position: left;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            justify-content: flex-start;
+            padding: 20px;
+            background: linear-gradient(45deg);
+            animation: backgroundAnimation 10s ease-in-out infinite;
+        }
+
+        p.center {
+            font-size: 20px;
+            color: rgb(0, 0, 0);
+            width: 80%;
+            text-align: center;
+            margin: 0 auto;
+            width: 60%;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: serif;
+            box-sizing: border-box;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 1;
+            background: linear-gradient(45deg);
+            animation: ulBackgroundAnimation 10s ease-in-out infinite;
+        }
+
+        ul li {
+            position: relative;
+            margin-right: 20px;
+        }
+
+        ul li a {
+            display: block;
+            padding: 20px 25px;
+            color: black;
+            text-decoration: none;
+            text-align: center;
+            font-size: 40px;
+        }
+
+        ul li .dropdown {
+            display: none;
+            position: absolute;
+            width: 200px;
+            z-index: 999;
+            top: 100%;
+            left: 0;
+        }
+
+        ul li:hover .dropdown {
+            display: block;
+        }
+
+        ul li .dropdown li {
+            display: block;
+        }
+
+        ul li .dropdown li a {
+            padding: 15px;
+            font-size: 20px;
+            color: black;
+        }
+
+        header {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            background-color: white;
+            background: linear-gradient(45deg);
+            animation: headerBackgroundAnimation 10s ease-in-out infinite;
+        }
+
+        header img {
+            width: 300px;
+            height: 300px;
+            margin-right: 100px;
+        }
+
+        .map-container {
+            width: 80%;
+            max-width: 800px;
+            height: 400px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f1f1f1;
+        }
+
+        .address {
+            font-size: 100px;
+            color: rgb(0, 0, 0);
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        p.p2 {
+            font-size: 20px;
+            color: rgb(0, 0, 0);
+            width: 80%;
+            text-align: center;
+            margin: 0 auto;
+            width: 60%;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 50px;
+            margin-top: 20px;
+        }
+
+
+        p {
+            font-size: 16px;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        li {
+            font-size: 16px;
+        }
+
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+
+        
+        footer {
+            font-size: large;
+            text-align: center;
+            padding: 20px;
+            background-color: #aa9c7ca4;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+ 
+        @keyframes backgroundAnimation {
+            0% {
+                background-color: #aca4e9; 
+            }
+            50% {
+                background-color: #eec08f; 
+            }
+            100% {
+                background-color: #a094e6; 
+            }
+        }
+
+        
+        @keyframes headerBackgroundAnimation {
+            0% {
+                background-color: #aca4e9; 
+            }
+            50% {
+                background-color: #eec08f; 
+            }
+            100% {
+                background-color: #a094e6; 
+            }
+        }
+        @keyframes ulBackgroundAnimation {
+            0% {
+                background-color: #aca4e9; 
+            }
+            50% {
+                background-color: #eec08f; 
+            }
+            100% {
+                background-color: #a094e6; 
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container"></div>
+
+    <header>
+        <img src="ass.png" alt="logo of Clarin" width="300" height="200" hspace="10" vspace="10">
+        <ul>
+            <li class="dropdown">
+                <a href="#"><u>Home Page</u></a>
+                <ul class="dropdown">
+                    <li id="groupActivity.html"><a href="#">Home</a></li>
+                    <li><a href="vision.html">Vision</a></li>
+                    <li><a href="mission.html">Mission</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <a href="#"><u>About Us</u></a>
+                <ul class="dropdown">
+                    <li><a href="about.html">History</a></li>
+                    <li><a href="suman.html">Suman Capital</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <a href="#"><u>Gallery</u></a>
+                <ul class="dropdown">
+                    <li><a href="houseofsuman.html">House of Suman</a></li>
+                    <li><a href="ramabeach.html">Rama Beach</a></li>
+                    <li><a href="boulevard.html">Clarin Boulevard</a></li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+
+    <h1>Suman Capital of the Philippines</h1>
+
+    <div class="address">
+        <p>Clarin, Misamis Occidental</p>
+        <p>Located in Northern Mindanao, Philippines</p>
+    </div>
+
+    <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3824.987272108392!2d123.909869915391!3d8.228915781336053!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32d5ab202c21e1d7%3A0x86c423587ea1c730!2sClarin%2C%20Misamis%20Occidental!5e0!3m2!1sen!2sph!4v1604358922134!5m2!1sen!2sph" 
+        width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+    <div class="facts">
+        <p class="center">
+            Clarin is a municipality located in the province of Misamis Occidental in the northern part of Mindanao, 
+            Philippines. Known for its agricultural richness, cultural heritage, and picturesque landscapes, Clarin is a growing 
+            community with a blend of tradition and progress. The land area of Clarin, Misamis Occidental, covers approximately 
+            150.62 square kilometers (or about 58.1 square miles).
+        </p>
+    </div>
+
+    <hr>
+
+    <h2>Topography and Land Features</h2>
+    <p class="p2">
+        The land features of the Municipality are characterized by low flat elevations in the urban areas. 
+        The coastline portion of the Barangays of Mialen, Poblacion, Dela Paz, Lupagan, and Lapasan consists of alluvial 
+        soils and some swamp lands with an average elevation of 2.1 meters above sea level. 
+        Two major rivers cut across the town: the Clarin River in the northern portion and the Labo River in the southern part.
+    </p>
+
+    <h2>Geology</h2>
+    <p class="p2">
+        On the eastern part of the Municipality is a flat alluvial plain, which starts in the coastal area to inland covered with lateritic soil with numerous weathered and un-weathered boulders of basalt. This plain is made up of recent alluvium and soils derived from igneous and metamorphic rocks. On the western portion is a high mountainous belt made up of volcanic rocks, where basalt predominates.
+    </p>
+
+    <h2>Climates</h2>
+    <p class="p2">
+        The rainiest months of this area are November and December, and the driest months are from February to April. The average monthly rainfall is 17.3 cm. Like the Province of Misamis Occidental, the town is typhoon-free. The temperature in lowland areas is fairly warm due to the proximity of these areas to the sea, while the temperature of the barangays in the western side is noted to be cool and chilly. Relative humidity varies between 80% each month.
+    </p>
+
+    <h2>Soil Types and Vegetation</h2>
+    <p class="p2">
+        The area has five general types of soil as follows:
+    </p>
+    <p class="p2">
+        Bantog clay in the Poblacion<br> Lapasan<br>
+        Segatic<br>
+        Guimkaloan clay loam<br>
+        Udtuyan clay loam in the interior portion<br>
+        Mountain soils in the forest areas<br>
+        Udtuyan clay loam<br>
+        Valencia clay loam (for rice areas)<br></p>
+
+    <h2>Farm Statistics</h2>
+    <table>
+        <tr>
+            <th>Area</th>
+            <th>Crop</th>
+            <th>Area in Hectares</th>
+        </tr>
+        <tr>
+            <td>Municipality</td>
+            <td>Rice</td>
+            <td>1,146.43</td>
+        </tr>
+        <tr>
+            <td>Municipality</td>
+            <td>Coconut</td>
+            <td>4,141.73</td>
+        </tr>
+        <tr>
+            <td>Municipality</td>
+            <td>Corn</td>
+            <td>502.60</td>
+        </tr>
+        <tr>
+            <td>Municipality</td>
+            <td>Vegetable</td>
+            <td>115.60</td>
+        </tr>
+    </table>
+    <footer>
+        <p>&copy; 2024 Municipality of Clarin. All rights reserved.</p>
+    </footer>
+</body>
+</html>
