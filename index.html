@@ -6,81 +6,143 @@
     <title>Municipality of Clarin</title>
     <style>
         body {
-            background: linear-gradient(45deg, #aca4e9, #eec08f, #a094e6); /* Gradient background */
-            animation: backgroundAnimation 10s ease-in-out infinite;
             margin: 0;
             font-family: serif;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 20px;
+            background-image: url('back.jpg'); /* Background image */
+            background-size: cover; /* Cover the whole body */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-position: center; /* Center the image */
         }
 
         header {
             width: 100%;
             display: flex;
+            flex-wrap: wrap; /* Allow wrapping */
             align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-            background: linear-gradient(45deg, #aca4e9, #eec08f, #a094e6);
-            padding: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            justify-content: space-between; /* Keep spacing for header */
+            position: relative; /* Make sure the header is positioned */
+            overflow: hidden; /* Hide anything that overflows */
+        }
+
+        header video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cover the entire header */
+            z-index: -1; /* Place the video behind other header elements */
+            pointer-events: none; /* Allow clicks to pass through */
         }
 
         header img {
-            width: 300px;
-            height: 200px;
+            width: 100%;
+            max-width: 300px; /* Ensure image does not exceed this width */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping */
+        }
+
+        ul > li {
+            position: relative; /* For positioning of dropdown */
+            margin-right: 20px; /* Space between top-level menu items */
+        }
+
+        ul > li a {
+            text-decoration: none;
+            color: black;
+            padding: 10px 15px;
+            font-size: 20px;
+            display: block;
+        }
+
+        /* Dropdown styles */
+        .dropdown-menu {
+            display: none; /* Hide dropdown by default */
+            position: absolute; /* Positioning */
+            top: 100%; /* Align below parent */
+            left: 0; /* Align to left of parent */
+            background: white; /* Background color for dropdown */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for better visibility */
+            z-index: 100; /* Ensure it appears on top */
+            padding: 0;
+        }
+
+        ul > li:hover .dropdown-menu {
+            display: block; /* Show dropdown on hover */
+        }
+
+        .dropdown-menu li {
+            width: 200px; /* Set a fixed width */
+        }
+
+        main {
+            text-align: center; /* Center align main content */
+            width: 90%; /* Use 90% for larger screens */
+            max-width: 800px; /* Max width for main content */
+            background-color: rgba(255, 255, 255, 0.8); /* White background with transparency */
+            padding: 20px; /* Added padding for spacing */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15); /* Box shadow for depth */
+            margin: 20px 0; /* Add margin above and below */
         }
 
         h1 {
             color: black;
-            font-size: 70px;
-            text-align: center;
+            font-size: 5vw; /* Responsive font size */
             margin-bottom: 20px;
         }
 
         h2 {
             color: #333;
-            font-size: 50px;
-            text-align: center;
+            font-size: 4vw; /* Responsive font size */
             margin-top: 20px;
         }
 
         p {
-            font-size: 16px;
+            font-size: 1.2em; /* Responsive font size */
             color: #333;
             margin: 10px auto;
             text-align: center;
-            width: 60%;
+            width: 100%; /* Allows the paragraphs to occupy full width of the parent */
         }
 
         .address {
-            font-size: 30px;
+            font-size: 1.5em; /* Responsive font size */
             color: rgb(0, 0, 0);
             font-weight: bold;
-            text-align: center;
             margin: 20px 0;
         }
 
         .map-container {
-            width: 80%;
+            width: 100%; /* Make map fill available space */
             max-width: 800px;
-            height: 400px;
+            height: 300px; /* Adjust height for better responsiveness */
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: 20px auto;  /* Center the map */
+            margin: 20px auto; /* Center the map */
             background-color: #f1f1f1;
         }
 
         .facts {
             margin: 20px auto;
             text-align: center;
-            width: 80%;
+            width: 100%; /* Filling the available width */
         }
 
         table {
-            width: 80%;
+            width: 100%; /* Make table fill available space */
             border-collapse: collapse;
             margin: 20px auto;
         }
@@ -91,32 +153,55 @@
 
         th, td {
             padding: 8px;
-            text-align: center;
+            text-align: center; /* Center-align table contents */
         }
 
         footer {
             font-size: large;
             text-align: center;
             padding: 20px;
-            background-color: #aa9c7ca4;
+            background-color: rgba(170, 156, 124, 0.8); /* Adjusted background for footer with transparency */
             width: 100%;
+            margin-top: 20px; /* Space above footer */
         }
 
-        @keyframes backgroundAnimation {
-            0% { background-color: #aca4e9; }
-            50% { background-color: #eec08f; }
-            100% { background-color: #a094e6; }
+        @media screen and (max-width: 600px) {
+            header img {
+                width: 100%; /* Full width for smaller screens */
+                height: auto; /* Maintain aspect ratio */
+            }
+
+            ul > li {
+                margin-right: 10px; /* Reduced margin for smaller screens */
+            }
+
+            h1 {
+                font-size: 6vw; /* responsive font size for smaller screens */
+            }
+
+            h2 {
+                font-size: 5vw; /* responsive font size for smaller screens */
+            }
+
+            .map-container {
+                height: 200px; /* Lower height for small screens */
+            }
         }
+
     </style>
 </head>
 <body>
 
 <header>
-    <img src="ass.png" alt="logo of Clarin">
+    <video autoplay muted loop>
+        <source src="bideos.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <img src="logo.png" alt="logo of Clarin">
     <ul>
         <li class="dropdown">
             <a href="#"><u>Home Page</u></a>
-            <ul class="dropdown">
+            <ul class="dropdown-menu">
                 <li><a href="#">Home</a></li>
                 <li><a href="vision.html">Vision</a></li>
                 <li><a href="mission.html">Mission</a></li>
@@ -124,14 +209,14 @@
         </li>
         <li class="dropdown">
             <a href="#"><u>About Us</u></a>
-            <ul class="dropdown">
+            <ul class="dropdown-menu">
                 <li><a href="about.html">History</a></li>
                 <li><a href="suman.html">Suman Capital</a></li>
             </ul>
         </li>
         <li class="dropdown">
             <a href="#"><u>Gallery</u></a>
-            <ul class="dropdown">
+            <ul class="dropdown-menu">
                 <li><a href="houseofsuman.html">House of Suman</a></li>
                 <li><a href="ramabeach.html">Rama Beach</a></li>
                 <li><a href="boulevard.html">Clarin Boulevard</a></li>
@@ -150,7 +235,7 @@
 
     <div class="map-container">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3824.987272108392!2d123.909869915391!3d8.228915781336053!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32d5ab202c21e1d7%3A0x86c423587ea1c730!2sClarin%2C%20Misamis%20Occidental!5e0!3m2!1sen!2sph!4v1604358922134!5m2!1sen!2sph" 
-        width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
 
     <div class="facts">
@@ -217,7 +302,7 @@
 </main>
 
 <footer>
-    <p>&copy; 2024 Municipality of Clarin. All rights reserved.</p>
+    <p>© 2024 Municipality of Clarin. All rights reserved.</p>
 </footer>
 </body>
 </html>
